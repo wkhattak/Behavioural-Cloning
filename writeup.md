@@ -1,14 +1,13 @@
-#**Behavioral Cloning** 
+# Behavioral Cloning
 
-##Writeup Template
+## Overview   
+   
+This writeup reflects upon the **Behavioral Cloning** project by explaining how the *steering angle prediction* pipeline works, identifying any shortcomings and proposing potential improvements. 
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
----
+## Project Goals
 
-**Behavioral Cloning Project**
-
-The goals / steps of this project are the following:
+The goals/steps of this project are:
 * Use the simulator to collect data of good driving behavior
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
@@ -16,15 +15,14 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
+## Reflection
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+### Pipeline Overview
+1. Load/parse the driving data csv file generated while recording driving a car inside a [simulator](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae4419_windows-sim/windows-sim.zip)
+2. Explore the input data
+3. Balance the input data
+4. Design a [Keras](https://keras.io/) CNN, train and validate a CNN regression model
+5. Run the simulator in autonomous mode so that the model predicts the steering angles and keeps the car on the road
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
