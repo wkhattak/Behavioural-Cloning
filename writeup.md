@@ -55,21 +55,21 @@ The model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-l
 
 ![Model Architecture](/report/images/network-architecture.jpg)
 
-The relevant code lines in the `model.py` are [lines 18-24](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
+The relevant code lines in the `model.py` are [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+As a first attempt to reduce overfitting, *dropout* with 0.75 *keep probability* was tried. However, this resulted in the car hitting the curb and deviating off the road. As a result, *L2 Regularization* with a value of 0.001 was used (model.py [lines 174-195](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L174-L195)). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting. This was done by splitting the data set, such that 80% is used for training and 20% for validation (model.py [line 238](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L238)). The model was tested by running it through the simulator for couple of laps and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an *Adam* optimizer. A *learning rate* of 0.001 was used. Also, the learning rate was decayed by specifying a value of 0.0001 for the *decay* parameter (model.py [line 200](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L200)).
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+The training data provided by Udacity was initially chosen. Upon testing, this data alone was not proving to be good enough. So later on, to keep the vehicle driving on the road, further data was recorded using the simulator. I used a combination of center lane driving, recovering from the left and right sides of the road. Also, as the default driving direction is counter-clockwise, few laps were recorded in the clockwise direction in a bid to remove any bias towards left steering angles.
 
 For details about how I created the training data, see the next section. 
 
