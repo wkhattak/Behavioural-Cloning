@@ -79,7 +79,7 @@ The overall strategy for deriving a model architecture was to start with a very 
 
 However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
 
-![Non-uniform histogram](/report/images/hist-1.png)
+![Non-uniform histogram](/report/images/histogram-1.png)
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
