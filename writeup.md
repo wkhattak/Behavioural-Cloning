@@ -101,7 +101,7 @@ To combat the overfitting, I modified the model by first introducing *dropout* w
 
 ![MSE](/report/images/training-mse.png)
 
-The final step was to run the simulator to see how well the car was driving around track one. At firs the car was having issues on teh curves and especially at the bridge. To improve the driving behavior in these cases, I recorded recovery data on curves and the bridge. Further to this, I also recorded few laps of track one going clockwise.
+The final step was to run the simulator to see how well the car was driving around track one. At firs the car was having issues on the curves and especially at the bridge. To improve the driving behavior in these cases, I recorded recovery data on curves and the bridge. Further to this, I also recorded few laps of track one going clockwise.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
