@@ -59,7 +59,7 @@ The relevant code lines in the `model.py` are [lines 162-224](https://github.com
 
 As a first attempt to reduce overfitting, *dropout* with 0.75 *keep probability* was tried. However, this resulted in the car hitting the curb and deviating off the road. As a result, *L2 Regularization* with a value of 0.001 was used (model.py [lines 174-195](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L174-L195)). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting. This was done by splitting the data set, such that 80% is used for training and 20% for validation (model.py [line 238](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L238)). The model was tested by running it through the simulator for couple of laps and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different datasets to ensure that the model was not overfitting. This was done by splitting the dataset, such that 80% is used for training and 20% for validation (model.py [line 238](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L238)). The model was tested by running it through the simulator for couple of laps and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
@@ -75,9 +75,11 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to start with a very simple CNN comprising one or two convolution layers followed with a similar number of fully connected layers. This is because in the start I wanted to verify that the image processing pipeline is working correctly. Once this was confirmed, then I moved on to making the architecture complex by implementing [nVidia's](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture mainly due to the reason that empirically it seems to be the best model used for solving the exact same problem.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
+
+[Non-uniform histogram](/report/images/hist-1.png)
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
@@ -123,6 +125,11 @@ Etc ....
 After the collection process, I had X number of data points. I then preprocessed this data by ...
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+I finally randomly shuffled the dataset and put Y% of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+
+## References
+
+* dfdsfdaf
+* dfadfdsf
