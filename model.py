@@ -38,7 +38,7 @@ def load_driving_log(csv_path):
 
 def cleanup_data(samples):
     '''
-    Removes any data with steering angle = 0.
+    Removes any data with speed = 0.
     Returns cleansed data array.
     '''
     cleansed_samples = []

@@ -77,17 +77,31 @@ For details about how I created the training data, see the next section.
 
 The overall strategy for deriving a model architecture was to start with a very simple CNN comprising one or two convolution layers followed with a similar number of fully connected layers. This is because in the start I wanted to verify that the image processing pipeline is working correctly. Once this was confirmed, then I moved on to making the architecture complex by implementing [nVidia's](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture mainly due to the reason that empirically it seems to be the best model used for solving the exact same problem.
 
-However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
+However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution (model.py [line 50](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L50))and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
 
 ![Non-uniform histogram](/report/images/histogram-1.png)
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+The blue line in the histogram shows how the histogram would have looked like if all angle ranges had equal number of samples. As majority of the data is centered towards zero, most of the predictions were being made in this range leading to car hitting the curb on corners.
 
-To combat the overfitting, I modified the model so that ...
+To rectify this issue, angle ranges with more than the average representation were penalized based on how many samples are in that range;the higher the count, the lesser the probability of inclusion in the training dataset (model.py [line 97](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L97)). 
 
-Then I ... 
+To further decrease model bias towards taking sharp turns, extreme angles with values -1 & +1 were also removed (model.py [line 81](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L81)).
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+Another strategy as part of only including relevant data was to remove zero speed images as such images depict scenarios where the car is not actually not moving.
+
+By employing the aforementioned strategies, the distribution of the training dataset was although not uniform, there was a noticable reduction in the number of near-zero angle images as shown below:
+
+![Uniform histogram](/report/images/histogram-2.png)
+
+All this helped to feed in only relevant data, thereby decreasing the training time & reducing the loss
+
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a continuously decreasing mean squared error on the training set but the mean squared error on the validation set was at first decreasing but then started to increase. This implied that the model was overfitting. 
+
+To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. This resulted in the following loss graph:
+
+![MSE](/report/images/training-mse.png)
+
+The final step was to run the simulator to see how well the car was driving around track one. At firs the car was having issues on teh curves and especially at the bridge. To improve the driving behavior in these cases, I recorded recovery data on curves and the bridge. Further to this, I also recorded few laps of track one going clockwise.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
