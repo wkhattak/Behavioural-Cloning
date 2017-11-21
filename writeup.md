@@ -51,11 +51,9 @@ The `model.py` file contains the code for loading the csv file, pre-processing t
 
 #### 1. An appropriate model architecture has been employed
 
-The model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture as depicted below:
+The model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture and consists of 5 convolution layers and 4 fully connected layers.
 
-![Model Architecture](/report/images/network-architecture.jpg)
-
-The relevant code lines in the `model.py` are [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
+The relevant code lines in the `model.py` are [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224). For a visual representation, see below section titled *Final Model Architecture*.
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -95,9 +93,11 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+As mentioned earlier, the final model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture as depicted below:
 
-![alt text][image1]
+![Model Architecture](/report/images/network-architecture.jpg)
+
+The relevant code lines in the `model.py` are [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
 
 #### 3. Creation of the Training Set & Training Process
 
