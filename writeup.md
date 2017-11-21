@@ -51,10 +51,10 @@ The `model.py` file contains the code for loading the csv file, pre-processing t
 
 ####1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+The model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture as depicted below:
+![Model Architecture](/repot/images/network-architecture.jpg)
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
-
+The relevant code lines in the `model.py` are [lines 18-24](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
 ####2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
