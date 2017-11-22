@@ -125,16 +125,13 @@ These images show what a recovery looks like starting from left edge:
 
 ![Clcokwise-drive](/report-images/recovery-3.jpg)![Clcokwise-drive](/report-images/recovery-4.jpg)
 
-XXXXXXX
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+As I had recorded few laps going clockwise, I didn't feel the need to flip images. 
 
-![alt text][image6]
-![alt text][image7]
+After the collection process, I had 58,251 number of images. However, after balancing the dataset (model.py [line 71](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L71)), as discussed above, I was left with 19,417 images.
 
-Etc ....
+[Dataset-count](/report-images/dataset-count.png) 
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
+But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively(model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset.
 
 I finally randomly shuffled the dataset and put Y% of the data into a validation set. 
 
