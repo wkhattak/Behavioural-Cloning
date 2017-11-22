@@ -93,7 +93,7 @@ By employing the aforementioned strategies, the distribution of the training dat
 
 ![Uniform histogram](/report-images/histogram-2.png)
 
-All this helped to feed in only relevant data, thereby decreasing the training time & reducing the loss
+All this helped to feed in only relevant data, thereby decreasing the training time & reducing the mean squared error.
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a continuously decreasing mean squared error on the training set but the mean squared error on the validation set was at first decreasing but then started to increase. This implied that the model was overfitting. 
 
