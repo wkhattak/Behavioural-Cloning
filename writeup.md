@@ -79,7 +79,7 @@ The overall strategy for deriving a model architecture was to start with a very 
 
 However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution (model.py [line 50](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L50))and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
 
-![Non-uniform histogram](/report/images/histogram-1.png)
+![Non-uniform histogram](/report-images/histogram-1.png)
 
 The blue line in the histogram shows how the histogram would have looked like if all angle ranges had equal number of samples. As majority of the data is centered towards zero, most of the predictions were being made in this range leading to car hitting the curb on corners.
 
@@ -91,7 +91,7 @@ Another strategy as part of only including relevant data was to remove zero spee
 
 By employing the aforementioned strategies, the distribution of the training dataset was although not uniform, there was a noticable reduction in the number of near-zero angle images as shown below:
 
-![Uniform histogram](/report/images/histogram-2.png)
+![Uniform histogram](/report-images/histogram-2.png)
 
 All this helped to feed in only relevant data, thereby decreasing the training time & reducing the loss
 
@@ -99,7 +99,7 @@ In order to gauge how well the model was working, I split my image and steering 
 
 To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. The number of epochs was also constrained to five to alleviate overfitting. This resulted in the following loss graph:
 
-![MSE](/report/images/training-mse.png)
+![MSE](/report-images/training-mse.png)
 
 The final step was to run the simulator to see how well the car was driving around track one. At firs the car was having issues on the curves and especially at the bridge. To improve the driving behavior in these cases, I recorded recovery data on curves and the bridge. Further to this, I also recorded few laps of track one going clockwise.
 
@@ -109,22 +109,23 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224)) consisted of a convolution neural network with the following layers:
 
-![Model Architecture](/report/images/network-architecture.jpg)
+![Model Architecture](/report-images/network-architecture.jpg)
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+By default, the car drives counter-clockwise on track one is, which produces training data with steering angles mostly in the negative range i.e. towards left. To combat this, few laps of center lane driving were recorded going clockwise. Here is an example image of driving on track one going clockwise:
 
-![alt text][image2]
+![Clcokwise-drive][/report-images/clockwise.jpg]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover back to center line in case it starts to deviate away towards either edges of the road. These images show what a recovery looks like starting from right edge:
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![Clcokwise-drive][/report-images/recovery-1.jpg]![Clcokwise-drive][/report-images/recovery-2.jpg]
 
-Then I repeated this process on track two in order to get more data points.
+These images show what a recovery looks like starting from left edge:
 
+![Clcokwise-drive][/report-images/recovery-3.jpg]![Clcokwise-drive][/report-images/recovery-4.jpg]
+
+XXXXXXX
 To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
 
 ![alt text][image6]
