@@ -97,7 +97,7 @@ All this helped to feed in only relevant data, thereby decreasing the training t
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a continuously decreasing mean squared error on the training set but the mean squared error on the validation set was at first decreasing but then started to increase. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. The number of epochs was also constrained to five to alleviate overfitting. This resulted in the following loss graph:
+To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. The number of epochs was also constrained to five to alleviate overfitting. Instead of using *ReLU* as the activation function, I used *ELU* as it helps in faster converging. This resulted in the following loss graph:
 
 ![MSE](/report-images/training-mse.png)
 
@@ -131,7 +131,7 @@ After the collection process, I had 58,251 number of images. However, after bala
 
 ![Dataset-count](/report-images/dataset-count.png) 
 
-But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively(model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset. Before feeding the images to the model, each image was resized to 66 x 200 as required by the nVidia architecture.
+But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively (model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset. Before feeding the images to the model, each image was resized to 66 x 200 as required by the nVidia architecture.
 
 I finally randomly shuffled the dataset and put 20% of the data into a validation set. 
 
