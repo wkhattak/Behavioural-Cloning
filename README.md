@@ -1,7 +1,7 @@
 # Project: Behavioral Cloning
 ## Overview   
    
-This writeup reflects upon the **Behavioral Cloning** project by explaining how the *steering angle prediction* pipeline works, identifying any shortcomings and proposing potential improvements. 
+This writeup reflects upon the **Behavioral Cloning** project by explaining how the *steering angle prediction* pipeline works, identifying any shortcomings and proposing potential improvements. For a detailed description, please see [prohect report](https://github.com/wkhattak/Behavioural-Cloning/blob/master/writeup.md).
 
 
 ## Project Goals
