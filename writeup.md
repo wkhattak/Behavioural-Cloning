@@ -131,11 +131,17 @@ After the collection process, I had 58,251 number of images. However, after bala
 
 ![Dataset-count](/report-images/dataset-count.png) 
 
-But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively(model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset.
+But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively(model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset. Before feeding the images to the model, each image was resized to 66 x 200 as required by the nVidia architecture.
 
 I finally randomly shuffled the dataset and put 20% of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as going any higher was not decreasing the validation loss. 
+
+### Shortcomings/Future Enhancements
+
+* Only the left track was used for data collection & training. In future, the right track (challenge track) can also be used to record driving behavior data & further generalize the model.
+
+* Image jittering techniques such as *horizon shift*, *brightness adjustment* can further be introduced to reduce overfitting.
 
 ## References
 
