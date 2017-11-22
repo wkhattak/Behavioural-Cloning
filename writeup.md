@@ -77,7 +77,7 @@ For details about how I created the training data, see the next section.
 
 The overall strategy for deriving a model architecture was to start with a very simple CNN comprising one or two convolution layers followed with a similar number of fully connected layers. This is because in the start I wanted to verify that the image processing pipeline is working correctly. Once this was confirmed, then I moved on to making the architecture complex by implementing [nVidia's](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture mainly due to the reason that empirically it seems to be the best model used for solving the exact same problem.
 
-However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution (model.py [line 50](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L50))and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
+However, even with nVidia's architecture, the results were not promising. Research pointed towards non-uniform dataset to be one of the main reasons. Consequently, I visualized the steering angle distribution (model.py [line 50](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L50)) and found out that majority of the data was centered around *zero* angle range as shown in the below histogram:
 
 ![Non-uniform histogram](/report-images/histogram-1.png)
 
