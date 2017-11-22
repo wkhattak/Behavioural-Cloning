@@ -129,15 +129,30 @@ As I had recorded few laps going clockwise, I didn't feel the need to flip image
 
 After the collection process, I had 58,251 number of images. However, after balancing the dataset (model.py [line 71](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L71)), as discussed above, I was left with 19,417 images.
 
-[Dataset-count](/report-images/dataset-count.png) 
+![Dataset-count](/report-images/dataset-count.png) 
 
 But this was not the final number of images used for training as I also used the left and right camera images by adding & subtracting a correction factor of 0.20 from left & right steering angles respectively(model.py [lines 126-130](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L126-L130)). This resulted in tripling the amount of training dataset.
 
-I finally randomly shuffled the dataset and put Y% of the data into a validation set. 
+I finally randomly shuffled the dataset and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as going any higher was not decreasing the validation loss. 
 
 ## References
 
-* dfdsfdaf
-* dfadfdsf
+* https://stackoverflow.com/questions/11349333/when-processing-csv-data-how-do-i-ignore-the-first-line-of-data
+
+* https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
+
+* https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/
+
+* https://github.com/jeremy-shannon/CarND-Behavioral-Cloning-Project
+
+* https://github.com/darienmt/CarND-Behavioral-Cloning-P3
+
+* https://github.com/naokishibuya/car-behavioral-cloning
+
+* https://sonamsingh19.github.io/blog/2016/09/01/ELU-For-RNN.html
+
+* http://forums.fast.ai/t/what-is-subsample-of-convolution2d-doing/3555
+
+* https://www.quora.com/How-do-we-detect-overfitting-and-under-fitting-in-Machine-Learning
