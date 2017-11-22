@@ -97,7 +97,7 @@ All this helped to feed in only relevant data, thereby decreasing the training t
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a continuously decreasing mean squared error on the training set but the mean squared error on the validation set was at first decreasing but then started to increase. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. This resulted in the following loss graph:
+To combat the overfitting, I modified the model by first introducing *dropout* with a probability of 0.75. However, this resulted in not so optimal driving behavior. Instead I used *L2 regularization* with a value of 0.001 and *decaying learning rate* with a value of 0.0001. The number of epochs was also constrained to five to alleviate overfitting. This resulted in the following loss graph:
 
 ![MSE](/report/images/training-mse.png)
 
@@ -107,13 +107,9 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-As mentioned earlier, the final model is based on [nVidia](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) architecture as depicted below:
+The final model architecture (model.py [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224)) consisted of a convolution neural network with the following layers:
 
 ![Model Architecture](/report/images/network-architecture.jpg)
-
-The relevant code lines in the `model.py` are [lines 162-224](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L162-L224).
 
 #### 3. Creation of the Training Set & Training Process
 
