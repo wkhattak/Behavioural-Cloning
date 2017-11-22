@@ -34,7 +34,7 @@ My project includes the following files:
 * **model.py** containing the script to load data, create and train the model
 * **drive.py** for driving the car in autonomous mode
 * **model.h5** containing a trained convolution neural network
-* **autonomous-run.mp4** showing how the car ran inside the simulator based on the predicted steering angles by the model
+* **video.mp4** showing how the car ran inside the simulator based on the predicted steering angles by the model
 * **writeup.md** summarizing the results
 
 #### 2. Submission includes functional code
