@@ -113,7 +113,7 @@ The final model architecture (model.py [lines 162-224](https://github.com/wkhatt
 
 #### 3. Creation of the Training Set & Training Process
 
-By default, the car drives counter-clockwise on track one is, which produces training data with steering angles mostly in the negative range i.e. towards left. To combat this, few laps of center lane driving were recorded going clockwise. Here is an example image of driving on track one going clockwise:
+By default, the car drives counter-clockwise on track one, which produces training data with steering angles mostly in the negative range i.e. towards left. To combat this, few laps of center lane driving were recorded going clockwise. Here is an example image of driving on track one going clockwise:
 
 ![Clockwise-drive](/report-images/clockwise.jpg)
 
