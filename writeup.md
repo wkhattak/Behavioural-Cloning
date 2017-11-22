@@ -115,15 +115,15 @@ The final model architecture (model.py [lines 162-224](https://github.com/wkhatt
 
 By default, the car drives counter-clockwise on track one is, which produces training data with steering angles mostly in the negative range i.e. towards left. To combat this, few laps of center lane driving were recorded going clockwise. Here is an example image of driving on track one going clockwise:
 
-![Clcokwise-drive][/report-images/clockwise.jpg]
+![Clockwise-drive](/report-images/clockwise.jpg)
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover back to center line in case it starts to deviate away towards either edges of the road. These images show what a recovery looks like starting from right edge:
 
-![Clcokwise-drive][/report-images/recovery-1.jpg]![Clcokwise-drive][/report-images/recovery-2.jpg]
+![Clcokwise-drive](/report-images/recovery-1.jpg)![Clcokwise-drive](/report-images/recovery-2.jpg)
 
 These images show what a recovery looks like starting from left edge:
 
-![Clcokwise-drive][/report-images/recovery-3.jpg]![Clcokwise-drive][/report-images/recovery-4.jpg]
+![Clcokwise-drive](/report-images/recovery-3.jpg)![Clcokwise-drive](/report-images/recovery-4.jpg)
 
 XXXXXXX
 To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
