@@ -87,7 +87,7 @@ To rectify this issue, angle ranges with more than the average representation we
 
 To further decrease model bias towards taking sharp turns, extreme angles with values -1 & +1 were also removed (model.py [line 81](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L81)).
 
-Another strategy as part of only including relevant data was to remove zero speed images as such images depict scenarios where the car is not actually not moving.
+Another strategy as part of only including relevant data was to remove zero speed images as such images depict scenarios where the car is not actually moving (model.py [line 39](https://github.com/wkhattak/Behavioural-Cloning/blob/master/model.py#L39)).
 
 By employing the aforementioned strategies, the distribution of the training dataset was although not uniform, there was a noticable reduction in the number of near-zero angle images as shown below:
 
